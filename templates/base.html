@@ -27,18 +27,19 @@
             </div>
         </form>
 
-        {% for todo in todo_list %}
-        <p>{{ todo.id }} | {{ todo.title }}</p>
+        {% for todo in todos %}
+        <div class="todos">
+            <p>{{ todo.id }} | <br />{{ todo.title }}</p>
 
-        {% if todo.complete == False %}
-        <span>Not completed</span>
-        {% else %}
-        <span>Completed</span>
-        {% endif %}
+            {% if todo.complete == False %}
+            <span>Not completed</span>
+            {% else %}
+            <span>Completed</span>
+            {% endif %}
 
-        <a href="/update/{{ todo.id }}">Update</a>
-        <a href="/delete/{{ todo.id }}">Delete</a>
-
+            <a href="/update/{{ todo.id }}">Update</a>
+            <a href="/delete/{{ todo.id }}">Delete</a>
+        </div>
         {% endfor %}
     </body>
 </html>
